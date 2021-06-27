@@ -105,12 +105,12 @@ export default function Dashboard(props) {
 
                 </TouchableOpacity>
 
-                <View style={{ width: "90%", height: normalize(160), marginTop: normalize(25), marginRight: normalize(2) }}>
+                <View style={{ width: "94%", height: normalize(160), marginTop: normalize(25),  }}>
 
                     <ImageBackground
-                        style={{ height: "100%", aspectRatio: 916 / 516, marginTop: "3%", alignItems: "center", justifyContent: "center" }}
+                        style={{ width: "100%",  height: "100%",  marginTop: "3%", alignItems: "center", justifyContent: "center" }}
                         source={ImagePath.section_bg}
-                        resizeMode="contain" >
+                        resizeMode="stretch" >
 
                         <FlatList
 
@@ -152,12 +152,12 @@ export default function Dashboard(props) {
 
                 </View>
 
-                <View style={{ width: "90%", height: normalize(95), marginTop: normalize(30), marginRight: normalize(2) }}>
+                <View style={{ width: "94%", height: normalize(100), marginTop: normalize(30), }}>
 
                     <ImageBackground
-                        style={{ height: "100%", aspectRatio: 904 / 305, marginTop: "3%", alignItems: "center", justifyContent: "center" }}
+                        style={{ height: "100%", width: "100%", marginTop: "3%", alignItems: "center", justifyContent: "center" }}
                         source={ImagePath.teacher_section_bg}
-                        resizeMode="contain" >
+                        resizeMode="stretch" >
 
                         <FlatList
 
