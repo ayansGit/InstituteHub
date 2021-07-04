@@ -18,5 +18,8 @@ const ImagePath = {
     add: require('./images/plus.png'),
     search: require('./images/search.png'),
     filter: require('./images/filter.png'),
+    back: require('./images/back.png'),
+    calendar: require('./images/calendar.png'),
+    courseIcon: require('./images/bookshelf.png'),
 };
 export default ImagePath;

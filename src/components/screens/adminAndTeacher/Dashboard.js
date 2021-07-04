@@ -8,10 +8,10 @@ import {
     TouchableOpacity, TextInput, ImageBackground,
     View, Image, Dimensions, KeyboardAvoidingView
 } from 'react-native';
-import Color from "../../assets/Colors"
-import Fonts from "../../assets/Fonts"
-import normalize from '../../utils/dimen';
-import ImagePath from '../../assets/ImagePath';
+import Color from "../../../assets/Colors"
+import Fonts from "../../../assets/Fonts"
+import normalize from '../../../utils/dimen';
+import ImagePath from '../../../assets/ImagePath';
 import ViewPager from '@react-native-community/viewpager';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { immersiveModeOn, immersiveModeOff } from 'react-native-android-immersive-mode';
@@ -21,7 +21,7 @@ export default function Dashboard(props) {
 
     const students = [
         { id: 1, name: "Student", icon: ImagePath.student2, route: "StudentList" },
-        { id: 1, name: "Courses", icon: ImagePath.courses, route: "StudentList" },
+        { id: 1, name: "Courses", icon: ImagePath.courses, route: "CourseList" },
         { id: 1, name: "Batch", icon: ImagePath.batch, route: "StudentList" },
         { id: 1, name: "Fees", icon: ImagePath.fees, route: "StudentList" },
         { id: 1, name: "Exams", icon: ImagePath.exam, route: "StudentList" },

@@ -6,6 +6,7 @@ const ratio = PixelRatio.get();
 export default function normalize(size) {
   const { width, height } = Dimensions.get('window');
 
+  console.log("PIXEL_RATIO: ", ratio)
   if (ratio >= 2 && ratio < 3) {
     if (width < 360) {
       return size * 0.95;
@@ -34,7 +35,6 @@ export default function normalize(size) {
     } else if (height >= 667 && height <= 735) {
       return size * 1.25;
     }
-
     return size * 1.4;
   }
 
