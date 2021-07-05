@@ -21,5 +21,6 @@ const ImagePath = {
     back: require('./images/back.png'),
     calendar: require('./images/calendar.png'),
     courseIcon: require('./images/bookshelf.png'),
+    batchIcon: require('./images/presentation.png'),
 };
 export default ImagePath;

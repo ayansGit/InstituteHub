@@ -10,26 +10,62 @@ import {
     View, Image, Dimensions, KeyboardAvoidingView,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
+import Checkbox from "@react-native-community/checkbox";
 import Color from "../../../../assets/Colors"
 import Fonts from "../../../../assets/Fonts"
 import normalize from '../../../../utils/dimen';
 import ImagePath from '../../../../assets/ImagePath';
-import StudentList from './StudentList';
 import Header from '../../../common/Header';
 import TextInputField from '../../../common/TextInputField';
 import DatePicker from '../../../common/DatePicker';
 
-export default function StudentDetails(props) {
+export default function TeacherDetails(props) {
 
     const [gender, setGender] = useState("Male")
     const [feesType, setFeesType] = useState("Monthly")
+
+    const [permissions, setPermissions] = useState([
+        {
+            name: "Student Permission",
+            enable: false
+        },
+        {
+            name: "Student Attendance",
+            enable: false
+        },
+        {
+            name: "Batch Operation",
+            enable: false
+        },
+        {
+            name: "Fee Access",
+            enable: false
+        },
+        {
+            name: "Exam Access",
+            enable: false
+        },
+        {
+            name: "Staff Access",
+            enable: false
+        },
+        {
+            name: "Teacher Permission",
+            enable: false
+        },
+        {
+            name: "Salary Access",
+            enable: false
+        },
+
+    ])
 
     return (
         <View style={{ flex: 1, backgroundColor: Color.blueBackground }}>
             <SafeAreaView style={{ flex: 1 }}>
                 <StatusBar backgroundColor={Color.blueBackground} />
                 <Header
-                    title={"Student Details"}
+                    title={"Staff Details"}
                     onBackPress={() => {
                         props.navigation.goBack()
                     }} />
@@ -45,30 +81,22 @@ export default function StudentDetails(props) {
                                 <Text style={{
                                     marginLeft: "5%", fontSize: normalize(10), color: Color.white,
                                     fontFamily: Fonts.regular,
-                                }}>BASIC DETAILS</Text>
+                                }}>PERSONAL INFO</Text>
                             </View>
 
                             <TextInputField
-                                placeholder={"Student Name"}
+                                placeholder={"Staff Name"}
                                 marginTop={normalize(20)} />
 
-                            <TextInputField
-                                placeholder={"Father Name"}
-                                marginTop={normalize(15)} />
-
-                            <TextInputField
-                                placeholder={"Mother Name"}
-                                marginTop={normalize(15)} />
-
                             <DatePicker
-                                placeholder={"Date Of Birth"}
+                                placeholder={"Joining date"}
                                 marginTop={normalize(15)} />
 
                             <Text style={{
                                 width: "90%", fontSize: normalize(12), fontFamily: Fonts.medium,
                                 color: Color.lightBlueText, textAlign: "left", marginTop: normalize(15), marginLeft: normalize(20)
                             }}>
-                                Select gender of the student:
+                                Select gender of the staff:
                             </Text>
 
                             <RadioButton.Group
@@ -149,27 +177,27 @@ export default function StudentDetails(props) {
                                 <Text style={{
                                     marginLeft: "5%", fontSize: normalize(10), color: Color.white,
                                     fontFamily: Fonts.regular,
-                                }}>EDUCATION</Text>
+                                }}>INSTITUTE DETAILS</Text>
                             </View>
 
                             <TextInputField
-                                placeholder={"School Name"}
+                                placeholder={"Position"}
                                 marginTop={normalize(20)} />
 
                             <TextInputField
-                                placeholder={"Standard"}
+                                placeholder={"Qualification"}
                                 marginTop={normalize(20)} />
 
                             <TextInputField
-                                placeholder={"Batch"}
+                                placeholder={"Salary"}
                                 marginTop={normalize(20)}
-                                />
+                                keyboardType={"numeric"} />
 
                             <Text style={{
                                 width: "90%", fontSize: normalize(12), fontFamily: Fonts.medium,
                                 color: Color.lightBlueText, textAlign: "left", marginTop: normalize(15), marginLeft: normalize(20)
                             }}>
-                               How the student will pay the fees?
+                                How the staff will get paid?
                             </Text>
 
                             <RadioButton.Group
@@ -198,23 +226,56 @@ export default function StudentDetails(props) {
                                     alignItems: "center", marginTop: normalize(10)
                                 }}
                                     onPress={() => {
-                                        setFeesType("Course")
+                                        setFeesType("Daily")
                                     }}>
-                                    {Platform.OS == "android" && <RadioButton color={Color.orange} uncheckedColor={Color.orange} value={"Course"} />}
+                                    {Platform.OS == "android" && <RadioButton color={Color.orange} uncheckedColor={Color.orange} value={"Daily"} />}
                                     <Text style={{
                                         width: "90%", textAlign: "left", fontSize: normalize(12), color: Color.white,
                                         fontFamily: Fonts.regular, marginLeft: normalize(15)
-                                    }}>Course</Text>
-                                    {Platform.OS == "ios" && <RadioButton color={Color.orange} uncheckedColor={Color.orange} value={"Course"} />}
+                                    }}>Daily</Text>
+                                    {Platform.OS == "ios" && <RadioButton color={Color.orange} uncheckedColor={Color.orange} value={"Daily"} />}
                                 </TouchableOpacity>
 
                             </RadioButton.Group>
 
-                            <TextInputField
-                                placeholder={"Fees"}
-                                marginTop={normalize(20)}
-                                marginBottom={normalize(60)}
-                                keyboardType={"numeric"} />
+                            <View style={{
+                                width: "100%", paddingTop: normalize(10), paddingBottom: normalize(10),
+                                backgroundColor: Color.lightBlueText, marginTop: normalize(20)
+                            }}>
+                                <Text style={{
+                                    marginLeft: "5%", fontSize: normalize(10), color: Color.white,
+                                    fontFamily: Fonts.regular,
+                                }}>PERMISSIONS</Text>
+                            </View>
+
+                            {permissions.map((value, index) => {
+
+                                return (
+                                    <TouchableOpacity style={{
+                                        width: "90%", flexDirection: "row", justifyContent: "space-around",
+                                        alignItems: "center", marginTop: normalize(10),
+                                    }}
+                                        onPress={() => {
+                                            // value.enable = !value.enable
+                                            // let permissionsArr = permissions
+                                            // permissionsArr[index].enable = !value.enable
+                                            // console.log("Permission: ", permissionsArr)
+                                            // setPermissions(permissionsArr)
+                                            // setPermissions(permissionsArr)
+                                        }}>
+                                        {/* {Platform.OS == "android" && <Checkbox tintColors={{ true: Color.orange, false: Color.orange }} value={value.enable} />} */}
+                                        <Checkbox  tintColors={{ true: Color.orange, false: Color.orange }} value={value.enable} />
+                                        <Text style={{
+                                            width: "90%", textAlign: "left", fontSize: normalize(12), color: Color.white,
+                                            fontFamily: Fonts.regular, marginLeft: normalize(15)
+                                        }}>{value.name}</Text>
+                                        {/* {Platform.OS == "ios" && <Checkbox value={value.enable} />} */}
+                                    </TouchableOpacity>
+                                )
+                            })}
+
+                            <View style = {{height: normalize(60)}}/>
+
 
                         </View>
 

@@ -22,16 +22,16 @@ export default function Dashboard(props) {
     const students = [
         { id: 1, name: "Student", icon: ImagePath.student2, route: "StudentList" },
         { id: 1, name: "Courses", icon: ImagePath.courses, route: "CourseList" },
-        { id: 1, name: "Batch", icon: ImagePath.batch, route: "StudentList" },
+        { id: 1, name: "Batch", icon: ImagePath.batch, route: "BatchList" },
         { id: 1, name: "Fees", icon: ImagePath.fees, route: "StudentList" },
         { id: 1, name: "Exams", icon: ImagePath.exam, route: "StudentList" },
         { id: 1, name: "Report", icon: ImagePath.report, route: "StudentList" },
     ]
 
     const institute = [
-        { id: 1, name: "Staff", icon: ImagePath.teacher },
-        { id: 1, name: "Staff\nAttendance", icon: ImagePath.attendance },
-        { id: 1, name: "Expenses", icon: ImagePath.expense }
+        { id: 1, name: "Staff", icon: ImagePath.teacher, route: "TeacherList" },
+        { id: 1, name: "Staff\nAttendance", icon: ImagePath.attendance, route: "TeacherList" },
+        { id: 1, name: "Expenses", icon: ImagePath.expense, route: "TeacherList" }
     ]
 
     return (
@@ -174,7 +174,8 @@ export default function Dashboard(props) {
                                     <TouchableOpacity style={{
                                         height: normalize(50), width: normalize(60), alignItems: "center",
                                         marginTop: normalize(5), marginBottom: normalize(5), marginLeft: normalize(15), marginRight: normalize(15)
-                                    }}>
+                                    }}
+                                    onPress = {() => {props.navigation.navigate(data.item.route)}}>
                                         <View style={{ padding: normalize(6), backgroundColor: Color.lightBlueText, borderRadius: normalize(16), }}>
                                             <Image
                                                 resizeMode="contain"
