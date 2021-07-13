@@ -8,10 +8,10 @@ import {
     TouchableOpacity, TextInput,
     View, Image, Dimensions, KeyboardAvoidingView
 } from 'react-native';
-import Color from "../../assets/Colors"
-import Fonts from "../../assets/Fonts"
-import normalize from '../../utils/dimen';
-import ImagePath from '../../assets/ImagePath';
+import Color from "../../../assets/Colors"
+import Fonts from "../../../assets/Fonts"
+import normalize from '../../../utils/dimen';
+import ImagePath from '../../../assets/ImagePath';
 import ViewPager from '@react-native-community/viewpager';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { immersiveModeOn, immersiveModeOff } from 'react-native-android-immersive-mode';

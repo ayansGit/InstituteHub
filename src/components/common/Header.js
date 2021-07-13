@@ -26,11 +26,11 @@ export default function Header(props) {
     return (
         <View style={{
             width: "100%", height: normalize(50), flexDirection: "row", justifyContent: "space-between", alignItems: "center",
-            backgroundColor: Color.blueBackground,
+            backgroundColor: props.backgroundColor,
         }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <TouchableOpacity
-                onPress = {() => onBackPress()}>
+                    onPress={() => onBackPress()}>
                     <Image
                         style={{ height: normalize(15), width: normalize(15), margin: normalize(15) }}
                         source={ImagePath.back}
@@ -38,7 +38,7 @@ export default function Header(props) {
                 </TouchableOpacity>
                 <Text style={{
                     fontSize: normalize(14), fontFamily: Fonts.medium, color: Color.white,
-                    
+
                 }}>{props.title}</Text>
             </View>
 
@@ -68,6 +68,7 @@ Header.propTypes = {
     title: PropTypes.string,
     search: PropTypes.bool,
     filter: PropTypes.bool,
+    backgroundColor: PropTypes.string,
     onBackPress: PropTypes.func,
 };
 
@@ -75,5 +76,6 @@ Header.defaultProps = {
     title: "",
     search: false,
     filter: false,
+    backgroundColor: Color.blueBackground,
     onBackPress: null
 };

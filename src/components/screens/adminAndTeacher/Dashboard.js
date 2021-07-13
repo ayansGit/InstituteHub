@@ -23,7 +23,7 @@ export default function Dashboard(props) {
         { id: 1, name: "Student", icon: ImagePath.student2, route: "StudentList" },
         { id: 1, name: "Courses", icon: ImagePath.courses, route: "CourseList" },
         { id: 1, name: "Batch", icon: ImagePath.batch, route: "BatchList" },
-        { id: 1, name: "Fees", icon: ImagePath.fees, route: "StudentList" },
+        { id: 1, name: "Fees", icon: ImagePath.fees, route: "Fees" },
         { id: 1, name: "Exams", icon: ImagePath.exam, route: "StudentList" },
         { id: 1, name: "Report", icon: ImagePath.report, route: "StudentList" },
     ]
@@ -184,7 +184,6 @@ export default function Dashboard(props) {
                                         </View>
 
                                         <Text
-
                                             style={{
                                                 fontSize: normalize(10), fontFamily: Fonts.regular, color: Color.white, marginTop: normalize(5), textAlign: "center"
                                             }}>{data.item.name}</Text>
